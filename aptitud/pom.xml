@@ -10,5 +10,6 @@
     <module>aptitud-ear</module>
     <module>aptitud-web</module>
     <module>aptitud-ejb</module>
+    <module>aptitud_catalogos</module>
   </modules>
 </project>
