@@ -16,7 +16,7 @@
         <ui:define name="body">
             <h:form id="PerfilListForm">
                 <p:panel header="#{bundle01.ListPerfilTitle}">
-                    <p:dataTable reflow="true" id="datalist" value="#{perfilController.items}" var="item"
+                    <p:dataTable reflow ="true" id="datalist" value="#{perfilController.items}" var="item"
                                  selectionMode="single" selection="#{perfilController.selected}"
                                  paginator="true"
                                  rowKey="#{item.idPerfil}"
