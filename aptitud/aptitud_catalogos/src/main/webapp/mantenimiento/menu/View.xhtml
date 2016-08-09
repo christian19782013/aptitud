@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="MenuViewDlg" widgetVar="MenuViewDialog" modal="true" resizable="false" appendTo="@(body)" header="#{bundle01.ViewMenuTitle}">
+            <h:form id="MenuViewForm">
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="2" rendered="#{menuController.selected != null}">
+                        <h:outputText value="#{bundle01.ViewMenuLabel_idMenu}"/>
+                        <h:outputText value="#{menuController.selected.idMenu}" title="#{bundle01.ViewMenuTitle_idMenu}"/>
+                        <h:outputText value="#{bundle01.ViewMenuLabel_descripcionMenu}"/>
+                        <h:outputText value="#{menuController.selected.descripcionMenu}" title="#{bundle01.ViewMenuTitle_descripcionMenu}"/>
+                        <h:outputText value="#{bundle01.ViewMenuLabel_opciones}"/>
+                        <h:outputText value="#{menuController.selected.opciones}" title="#{bundle01.ViewMenuTitle_opciones}"/>
+                        <h:outputText value="#{bundle01.ViewMenuLabel_perfil}"/>
+                        <h:outputText value="#{menuController.selected.perfil}" title="#{bundle01.ViewMenuTitle_perfil}"/>
+                    </p:panelGrid>
+                    <p:commandButton value="#{bundle01.Close}" onclick="MenuViewDialog.hide()"/>
+                </h:panelGroup>
+            </h:form>
+        </p:dialog>
+
+    </ui:composition>
+</html>

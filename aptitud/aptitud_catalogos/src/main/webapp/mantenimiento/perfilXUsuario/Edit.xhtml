@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="PerfilXUsuarioEditDlg" widgetVar="PerfilXUsuarioEditDialog" modal="true" resizable="false" appendTo="@(body)" header="#{bundle01.EditPerfilXUsuarioTitle}">
+            <h:form id="PerfilXUsuarioEditForm">
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="2" rendered="#{perfilXUsuarioController.selected != null}">
+                        <p:outputLabel value="#{bundle01.EditPerfilXUsuarioLabel_idPerfUsu}" for="idPerfUsu" />
+                        <p:inputText id="idPerfUsu" value="#{perfilXUsuarioController.selected.idPerfUsu}" title="#{bundle01.EditPerfilXUsuarioTitle_idPerfUsu}" required="true" requiredMessage="#{bundle01.EditPerfilXUsuarioRequiredMessage_idPerfUsu}"/>
+                        <p:outputLabel value="#{bundle01.EditPerfilXUsuarioLabel_perfil}" for="perfil" />
+                        <p:selectOneMenu id="perfil" value="#{perfilXUsuarioController.selected.perfil}" required="true" requiredMessage="#{bundle01.EditPerfilXUsuarioRequiredMessage_perfil}">
+                            <f:selectItem itemLabel="#{bundle01.SelectOneMessage}"/>
+                            <f:selectItems value="#{perfilController.itemsAvailableSelectOne}"
+                                           var="perfilItem"
+                                           itemValue="#{perfilItem}"/>
+                        </p:selectOneMenu>
+                        <p:outputLabel value="#{bundle01.EditPerfilXUsuarioLabel_usuario}" for="usuario" />
+                        <p:selectOneMenu id="usuario" value="#{perfilXUsuarioController.selected.usuario}" required="true" requiredMessage="#{bundle01.EditPerfilXUsuarioRequiredMessage_usuario}">
+                            <f:selectItem itemLabel="#{bundle01.SelectOneMessage}"/>
+                            <f:selectItems value="#{usuarioController.itemsAvailableSelectOne}"
+                                           var="usuarioItem"
+                                           itemValue="#{usuarioItem}"/>
+                        </p:selectOneMenu>
+                    </p:panelGrid>
+                    <p:commandButton actionListener="#{perfilXUsuarioController.update}" value="#{bundle01.Save}" update="display,:PerfilXUsuarioListForm:datalist,:growl" oncomplete="handleSubmit(args, 'PerfilXUsuarioEditDialog');"/>
+                    <p:commandButton value="#{bundle01.Cancel}" onclick="PerfilXUsuarioEditDialog.hide()"/>
+                </h:panelGroup>
+            </h:form>
+        </p:dialog>
+
+    </ui:composition>
+</html>

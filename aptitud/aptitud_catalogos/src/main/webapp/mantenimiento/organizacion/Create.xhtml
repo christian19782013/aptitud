@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="OrganizacionCreateDlg" widgetVar="OrganizacionCreateDialog" modal="true" resizable="false" appendTo="@(body)" header="#{bundle01.CreateOrganizacionTitle}">
+            <h:form id="OrganizacionCreateForm">
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="2" rendered="#{organizacionController.selected != null}">
+                        <p:outputLabel value="#{bundle01.CreateOrganizacionLabel_idOrganizacion}" for="idOrganizacion" />
+                        <p:inputText id="idOrganizacion" value="#{organizacionController.selected.idOrganizacion}" title="#{bundle01.CreateOrganizacionTitle_idOrganizacion}" required="true" requiredMessage="#{bundle01.CreateOrganizacionRequiredMessage_idOrganizacion}"/>
+                        <p:outputLabel value="#{bundle01.CreateOrganizacionLabel_razonSocial}" for="razonSocial" />
+                        <p:inputText id="razonSocial" value="#{organizacionController.selected.razonSocial}" title="#{bundle01.CreateOrganizacionTitle_razonSocial}" required="true" requiredMessage="#{bundle01.CreateOrganizacionRequiredMessage_razonSocial}"/>
+                        <p:outputLabel value="#{bundle01.CreateOrganizacionLabel_ruc}" for="ruc" />
+                        <p:inputText id="ruc" value="#{organizacionController.selected.ruc}" title="#{bundle01.CreateOrganizacionTitle_ruc}" />
+                        <p:outputLabel value="#{bundle01.CreateOrganizacionLabel_direccion}" for="direccion" />
+                        <p:inputText id="direccion" value="#{organizacionController.selected.direccion}" title="#{bundle01.CreateOrganizacionTitle_direccion}" />
+                        <p:outputLabel value="#{bundle01.CreateOrganizacionLabel_telefono}" for="telefono" />
+                        <p:inputText id="telefono" value="#{organizacionController.selected.telefono}" title="#{bundle01.CreateOrganizacionTitle_telefono}" />
+                        <p:outputLabel value="#{bundle01.CreateOrganizacionLabel_mail}" for="mail" />
+                        <p:inputText id="mail" value="#{organizacionController.selected.mail}" title="#{bundle01.CreateOrganizacionTitle_mail}" />
+                        <p:outputLabel value="#{bundle01.CreateOrganizacionLabel_sitioWeb}" for="sitioWeb" />
+                        <p:inputText id="sitioWeb" value="#{organizacionController.selected.sitioWeb}" title="#{bundle01.CreateOrganizacionTitle_sitioWeb}" />
+                    </p:panelGrid>
+                    <p:commandButton actionListener="#{organizacionController.create}" value="#{bundle01.Save}" update="display,:OrganizacionListForm:datalist,:growl" oncomplete="handleSubmit(args,'OrganizacionCreateDialog');"/>
+                    <p:commandButton value="#{bundle01.Cancel}" onclick="OrganizacionCreateDialog.hide()"/>
+                </h:panelGroup>
+            </h:form>
+        </p:dialog>
+
+    </ui:composition>
+</html>

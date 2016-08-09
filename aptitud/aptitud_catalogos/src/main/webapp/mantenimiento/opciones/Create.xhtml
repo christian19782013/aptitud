@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="OpcionesCreateDlg" widgetVar="OpcionesCreateDialog" modal="true" resizable="false" appendTo="@(body)" header="#{bundle01.CreateOpcionesTitle}">
+            <h:form id="OpcionesCreateForm">
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="2" rendered="#{opcionesController.selected != null}">
+                        <p:outputLabel value="#{bundle01.CreateOpcionesLabel_idOpciones}" for="idOpciones" />
+                        <p:inputText id="idOpciones" value="#{opcionesController.selected.idOpciones}" title="#{bundle01.CreateOpcionesTitle_idOpciones}" required="true" requiredMessage="#{bundle01.CreateOpcionesRequiredMessage_idOpciones}"/>
+                        <p:outputLabel value="#{bundle01.CreateOpcionesLabel_descripcionOpciones}" for="descripcionOpciones" />
+                        <p:inputText id="descripcionOpciones" value="#{opcionesController.selected.descripcionOpciones}" title="#{bundle01.CreateOpcionesTitle_descripcionOpciones}" required="true" requiredMessage="#{bundle01.CreateOpcionesRequiredMessage_descripcionOpciones}"/>
+                        <p:outputLabel value="#{bundle01.CreateOpcionesLabel_imagenOpciones}" for="imagenOpciones" />
+                        <p:inputTextarea rows="4" cols="30" id="imagenOpciones" value="#{opcionesController.selected.imagenOpciones}" title="#{bundle01.CreateOpcionesTitle_imagenOpciones}" />
+                        <p:outputLabel value="#{bundle01.CreateOpcionesLabel_urlOpciones}" for="urlOpciones" />
+                        <p:inputText id="urlOpciones" value="#{opcionesController.selected.urlOpciones}" title="#{bundle01.CreateOpcionesTitle_urlOpciones}" />
+                        <p:outputLabel value="#{bundle01.CreateOpcionesLabel_modulo}" for="modulo" />
+                        <p:selectOneMenu id="modulo" value="#{opcionesController.selected.modulo}" required="true" requiredMessage="#{bundle01.EditOpcionesRequiredMessage_modulo}">
+                            <f:selectItems value="#{moduloController.itemsAvailableSelectOne}"
+                                           var="moduloItem"
+                                           itemValue="#{moduloItem}"/>
+                        </p:selectOneMenu>
+                    </p:panelGrid>
+                    <p:commandButton actionListener="#{opcionesController.create}" value="#{bundle01.Save}" update="display,:OpcionesListForm:datalist,:growl" oncomplete="handleSubmit(args,'OpcionesCreateDialog');"/>
+                    <p:commandButton value="#{bundle01.Cancel}" onclick="OpcionesCreateDialog.hide()"/>
+                </h:panelGroup>
+            </h:form>
+        </p:dialog>
+
+    </ui:composition>
+</html>
