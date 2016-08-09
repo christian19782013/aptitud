@@ -21,6 +21,8 @@ import javax.faces.convert.FacesConverter;
 @SessionScoped
 public class MenuController implements Serializable {
 
+
+
     @EJB
     private ec.ruiztello.aptitud_catalogos.MenuFacade ejbFacade;
     private List<Menu> items = null;

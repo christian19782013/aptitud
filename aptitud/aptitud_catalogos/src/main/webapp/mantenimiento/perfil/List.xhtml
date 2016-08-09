@@ -16,7 +16,7 @@
         <ui:define name="body">
             <h:form id="PerfilListForm">
                 <p:panel header="#{bundle01.ListPerfilTitle}">
-                    <p:dataTable id="datalist" value="#{perfilController.items}" var="item"
+                    <p:dataTable reflow="true" id="datalist" value="#{perfilController.items}" var="item"
                                  selectionMode="single" selection="#{perfilController.selected}"
                                  paginator="true"
                                  rowKey="#{item.idPerfil}"
@@ -49,7 +49,7 @@
                             <f:facet name="header">
                                 <h:outputText value="#{bundle01.ListPerfilTitle_modulo}"/>
                             </f:facet>
-                            <h:outputText value="#{item.modulo}"/>
+                            <h:outputText value="#{item.modulo.nombreModulo}"/>
                         </p:column>
                         <f:facet name="footer">
                             <p:commandButton id="createButton" icon="ui-icon-plus"   value="#{bundle01.Create}" actionListener="#{perfilController.prepareCreate}" update=":PerfilCreateForm" oncomplete="PF('PerfilCreateDialog').show()"/>

@@ -7,7 +7,7 @@
       xmlns:p="http://primefaces.org/ui">
 
     <ui:composition>
-
+      
         <p:dialog id="PerfilEditDlg" widgetVar="PerfilEditDialog" modal="true" resizable="false" appendTo="@(body)" header="#{bundle01.EditPerfilTitle}">
             <h:form id="PerfilEditForm">
                 <h:panelGroup id="display">
@@ -23,7 +23,7 @@
                             <f:selectItem itemLabel="#{bundle01.SelectOneMessage}"/>
                             <f:selectItems value="#{moduloController.itemsAvailableSelectOne}"
                                            var="moduloItem"
-                                           itemValue="#{moduloItem}"/>
+                                           itemValue="#{moduloItem}" itemLabel="#{moduloItem.nombreModulo}"/>
                         </p:selectOneMenu>
                     </p:panelGrid>
                     <p:commandButton actionListener="#{perfilController.update}" value="#{bundle01.Save}" update="display,:PerfilListForm:datalist,:growl" oncomplete="handleSubmit(args, 'PerfilEditDialog');"/>

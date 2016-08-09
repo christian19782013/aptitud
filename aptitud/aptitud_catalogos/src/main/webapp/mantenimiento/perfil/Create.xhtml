@@ -22,7 +22,7 @@
                         <p:selectOneMenu id="modulo" value="#{perfilController.selected.modulo}" required="true" requiredMessage="#{bundle01.EditPerfilRequiredMessage_modulo}">
                             <f:selectItems value="#{moduloController.itemsAvailableSelectOne}"
                                            var="moduloItem"
-                                           itemValue="#{moduloItem}"/>
+                                           itemValue="#{moduloItem}" itemLabel="#{moduloItem.nombreModulo}"/>
                         </p:selectOneMenu>
                     </p:panelGrid>
                     <p:commandButton actionListener="#{perfilController.create}" value="#{bundle01.Save}" update="display,:PerfilListForm:datalist,:growl" oncomplete="handleSubmit(args,'PerfilCreateDialog');"/>
