@@ -22,8 +22,6 @@ import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
-import javax.xml.bind.annotation.XmlRootElement;
-import javax.xml.bind.annotation.XmlTransient;
 
 /**
  *
@@ -31,12 +29,8 @@ import javax.xml.bind.annotation.XmlTransient;
  */
 @Entity
 @Table(name = "OPCIONES")
-@XmlRootElement
 @NamedQueries({
-    @NamedQuery(name = "Opciones.findAll", query = "SELECT o FROM Opciones o"),
-    @NamedQuery(name = "Opciones.findByIdOpciones", query = "SELECT o FROM Opciones o WHERE o.idOpciones = :idOpciones"),
-    @NamedQuery(name = "Opciones.findByDescripcionOpciones", query = "SELECT o FROM Opciones o WHERE o.descripcionOpciones = :descripcionOpciones"),
-    @NamedQuery(name = "Opciones.findByUrlOpciones", query = "SELECT o FROM Opciones o WHERE o.urlOpciones = :urlOpciones")})
+    @NamedQuery(name = "Opciones.findAll", query = "SELECT o FROM Opciones o")})
 public class Opciones implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -115,7 +109,6 @@ public class Opciones implements Serializable {
         this.modulo = modulo;
     }
 
-    @XmlTransient
     public List<Menu> getMenuList() {
         return menuList;
     }
@@ -146,7 +139,7 @@ public class Opciones implements Serializable {
 
     @Override
     public String toString() {
-        return "ec.ruiztello.entidades.Opciones[ idOpciones=" + idOpciones + " ]";
+        return "ec.ruiztello.Opciones[ idOpciones=" + idOpciones + " ]";
     }
     
 }

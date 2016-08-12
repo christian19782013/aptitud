@@ -19,8 +19,6 @@ import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
-import javax.xml.bind.annotation.XmlRootElement;
-import javax.xml.bind.annotation.XmlTransient;
 
 /**
  *
@@ -28,16 +26,8 @@ import javax.xml.bind.annotation.XmlTransient;
  */
 @Entity
 @Table(name = "ORGANIZACION")
-@XmlRootElement
 @NamedQueries({
-    @NamedQuery(name = "Organizacion.findAll", query = "SELECT o FROM Organizacion o"),
-    @NamedQuery(name = "Organizacion.findByIdOrganizacion", query = "SELECT o FROM Organizacion o WHERE o.idOrganizacion = :idOrganizacion"),
-    @NamedQuery(name = "Organizacion.findByRazonSocial", query = "SELECT o FROM Organizacion o WHERE o.razonSocial = :razonSocial"),
-    @NamedQuery(name = "Organizacion.findByRuc", query = "SELECT o FROM Organizacion o WHERE o.ruc = :ruc"),
-    @NamedQuery(name = "Organizacion.findByDireccion", query = "SELECT o FROM Organizacion o WHERE o.direccion = :direccion"),
-    @NamedQuery(name = "Organizacion.findByTelefono", query = "SELECT o FROM Organizacion o WHERE o.telefono = :telefono"),
-    @NamedQuery(name = "Organizacion.findByMail", query = "SELECT o FROM Organizacion o WHERE o.mail = :mail"),
-    @NamedQuery(name = "Organizacion.findBySitioWeb", query = "SELECT o FROM Organizacion o WHERE o.sitioWeb = :sitioWeb")})
+    @NamedQuery(name = "Organizacion.findAll", query = "SELECT o FROM Organizacion o")})
 public class Organizacion implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -138,7 +128,6 @@ public class Organizacion implements Serializable {
         this.sitioWeb = sitioWeb;
     }
 
-    @XmlTransient
     public List<UsuarioXOrganizacion> getUsuarioXOrganizacionList() {
         return usuarioXOrganizacionList;
     }
@@ -169,7 +158,7 @@ public class Organizacion implements Serializable {
 
     @Override
     public String toString() {
-        return "ec.ruiztello.entidades.Organizacion[ idOrganizacion=" + idOrganizacion + " ]";
+        return "ec.ruiztello.Organizacion[ idOrganizacion=" + idOrganizacion + " ]";
     }
     
 }

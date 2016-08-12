@@ -3,6 +3,7 @@
   <persistence-unit name="ec.ruiztello_aptitud-ejb_ejb_1.0-SNAPSHOTPU" transaction-type="JTA">
     <jta-data-source>jdbc/aptitud</jta-data-source>
     <exclude-unlisted-classes>false</exclude-unlisted-classes>
+    <validation-mode>NONE</validation-mode>
     <properties/>
   </persistence-unit>
 </persistence>

@@ -21,8 +21,6 @@ import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
-import javax.xml.bind.annotation.XmlRootElement;
-import javax.xml.bind.annotation.XmlTransient;
 
 /**
  *
@@ -30,12 +28,8 @@ import javax.xml.bind.annotation.XmlTransient;
  */
 @Entity
 @Table(name = "PERFIL")
-@XmlRootElement
 @NamedQueries({
-    @NamedQuery(name = "Perfil.findAll", query = "SELECT p FROM Perfil p"),
-    @NamedQuery(name = "Perfil.findByIdPerfil", query = "SELECT p FROM Perfil p WHERE p.idPerfil = :idPerfil"),
-    @NamedQuery(name = "Perfil.findByNombrePerfil", query = "SELECT p FROM Perfil p WHERE p.nombrePerfil = :nombrePerfil"),
-    @NamedQuery(name = "Perfil.findByDescripcionPerfil", query = "SELECT p FROM Perfil p WHERE p.descripcionPerfil = :descripcionPerfil")})
+    @NamedQuery(name = "Perfil.findAll", query = "SELECT p FROM Perfil p")})
 public class Perfil implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -108,7 +102,6 @@ public class Perfil implements Serializable {
         this.modulo = modulo;
     }
 
-    @XmlTransient
     public List<Menu> getMenuList() {
         return menuList;
     }
@@ -117,7 +110,6 @@ public class Perfil implements Serializable {
         this.menuList = menuList;
     }
 
-    @XmlTransient
     public List<PerfilXUsuario> getPerfilXUsuarioList() {
         return perfilXUsuarioList;
     }
@@ -148,7 +140,7 @@ public class Perfil implements Serializable {
 
     @Override
     public String toString() {
-        return "ec.ruiztello.entidades.Perfil[ idPerfil=" + idPerfil + " ]";
+        return "ec.ruiztello.Perfil[ idPerfil=" + idPerfil + " ]";
     }
     
 }

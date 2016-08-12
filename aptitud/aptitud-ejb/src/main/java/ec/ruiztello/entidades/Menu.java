@@ -18,7 +18,6 @@ import javax.persistence.NamedQuery;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
-import javax.xml.bind.annotation.XmlRootElement;
 
 /**
  *
@@ -26,11 +25,8 @@ import javax.xml.bind.annotation.XmlRootElement;
  */
 @Entity
 @Table(name = "MENU")
-@XmlRootElement
 @NamedQueries({
-    @NamedQuery(name = "Menu.findAll", query = "SELECT m FROM Menu m"),
-    @NamedQuery(name = "Menu.findByIdMenu", query = "SELECT m FROM Menu m WHERE m.idMenu = :idMenu"),
-    @NamedQuery(name = "Menu.findByDescripcionMenu", query = "SELECT m FROM Menu m WHERE m.descripcionMenu = :descripcionMenu")})
+    @NamedQuery(name = "Menu.findAll", query = "SELECT m FROM Menu m")})
 public class Menu implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -111,7 +107,7 @@ public class Menu implements Serializable {
 
     @Override
     public String toString() {
-        return "ec.ruiztello.entidades.Menu[ idMenu=" + idMenu + " ]";
+        return "ec.ruiztello.Menu[ idMenu=" + idMenu + " ]";
     }
     
 }

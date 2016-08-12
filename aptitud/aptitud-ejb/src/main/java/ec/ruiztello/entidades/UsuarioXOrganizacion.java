@@ -17,7 +17,6 @@ import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
-import javax.xml.bind.annotation.XmlRootElement;
 
 /**
  *
@@ -25,10 +24,8 @@ import javax.xml.bind.annotation.XmlRootElement;
  */
 @Entity
 @Table(name = "USUARIO_X_ORGANIZACION")
-@XmlRootElement
 @NamedQueries({
-    @NamedQuery(name = "UsuarioXOrganizacion.findAll", query = "SELECT u FROM UsuarioXOrganizacion u"),
-    @NamedQuery(name = "UsuarioXOrganizacion.findByIdUsuOrg", query = "SELECT u FROM UsuarioXOrganizacion u WHERE u.idUsuOrg = :idUsuOrg")})
+    @NamedQuery(name = "UsuarioXOrganizacion.findAll", query = "SELECT u FROM UsuarioXOrganizacion u")})
 public class UsuarioXOrganizacion implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -98,7 +95,7 @@ public class UsuarioXOrganizacion implements Serializable {
 
     @Override
     public String toString() {
-        return "ec.ruiztello.entidades.UsuarioXOrganizacion[ idUsuOrg=" + idUsuOrg + " ]";
+        return "ec.ruiztello.UsuarioXOrganizacion[ idUsuOrg=" + idUsuOrg + " ]";
     }
     
 }

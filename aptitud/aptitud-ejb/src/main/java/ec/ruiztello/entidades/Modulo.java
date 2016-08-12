@@ -20,8 +20,6 @@ import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
-import javax.xml.bind.annotation.XmlRootElement;
-import javax.xml.bind.annotation.XmlTransient;
 
 /**
  *
@@ -29,12 +27,8 @@ import javax.xml.bind.annotation.XmlTransient;
  */
 @Entity
 @Table(name = "MODULO")
-@XmlRootElement
 @NamedQueries({
-    @NamedQuery(name = "Modulo.findAll", query = "SELECT m FROM Modulo m"),
-    @NamedQuery(name = "Modulo.findByIdModulo", query = "SELECT m FROM Modulo m WHERE m.idModulo = :idModulo"),
-    @NamedQuery(name = "Modulo.findByNombreModulo", query = "SELECT m FROM Modulo m WHERE m.nombreModulo = :nombreModulo"),
-    @NamedQuery(name = "Modulo.findByUrlModulo", query = "SELECT m FROM Modulo m WHERE m.urlModulo = :urlModulo")})
+    @NamedQuery(name = "Modulo.findAll", query = "SELECT m FROM Modulo m")})
 public class Modulo implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -97,7 +91,6 @@ public class Modulo implements Serializable {
         this.urlModulo = urlModulo;
     }
 
-    @XmlTransient
     public List<Opciones> getOpcionesList() {
         return opcionesList;
     }
@@ -106,7 +99,6 @@ public class Modulo implements Serializable {
         this.opcionesList = opcionesList;
     }
 
-    @XmlTransient
     public List<Perfil> getPerfilList() {
         return perfilList;
     }
@@ -137,7 +129,7 @@ public class Modulo implements Serializable {
 
     @Override
     public String toString() {
-        return "ec.ruiztello.entidades.Modulo[ idModulo=" + idModulo + " ]";
+        return "ec.ruiztello.Modulo[ idModulo=" + idModulo + " ]";
     }
     
 }

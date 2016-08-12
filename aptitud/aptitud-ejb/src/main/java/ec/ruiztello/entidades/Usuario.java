@@ -24,8 +24,6 @@ import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
-import javax.xml.bind.annotation.XmlRootElement;
-import javax.xml.bind.annotation.XmlTransient;
 
 /**
  *
@@ -33,21 +31,8 @@ import javax.xml.bind.annotation.XmlTransient;
  */
 @Entity
 @Table(name = "USUARIO")
-@XmlRootElement
 @NamedQueries({
-    @NamedQuery(name = "Usuario.findAll", query = "SELECT u FROM Usuario u"),
-    @NamedQuery(name = "Usuario.findByIdUsuario", query = "SELECT u FROM Usuario u WHERE u.idUsuario = :idUsuario"),
-    @NamedQuery(name = "Usuario.findByDni", query = "SELECT u FROM Usuario u WHERE u.dni = :dni"),
-    @NamedQuery(name = "Usuario.findByNombres", query = "SELECT u FROM Usuario u WHERE u.nombres = :nombres"),
-    @NamedQuery(name = "Usuario.findByApellidos", query = "SELECT u FROM Usuario u WHERE u.apellidos = :apellidos"),
-    @NamedQuery(name = "Usuario.findByClave", query = "SELECT u FROM Usuario u WHERE u.clave = :clave"),
-    @NamedQuery(name = "Usuario.findByEmail", query = "SELECT u FROM Usuario u WHERE u.email = :email"),
-    @NamedQuery(name = "Usuario.findByCelular", query = "SELECT u FROM Usuario u WHERE u.celular = :celular"),
-    @NamedQuery(name = "Usuario.findByConvencional", query = "SELECT u FROM Usuario u WHERE u.convencional = :convencional"),
-    @NamedQuery(name = "Usuario.findByConvencional2", query = "SELECT u FROM Usuario u WHERE u.convencional2 = :convencional2"),
-    @NamedQuery(name = "Usuario.findByFechaCreacion", query = "SELECT u FROM Usuario u WHERE u.fechaCreacion = :fechaCreacion"),
-    @NamedQuery(name = "Usuario.findByFechaModificacion", query = "SELECT u FROM Usuario u WHERE u.fechaModificacion = :fechaModificacion"),
-    @NamedQuery(name = "Usuario.findByEstado", query = "SELECT u FROM Usuario u WHERE u.estado = :estado")})
+    @NamedQuery(name = "Usuario.findAll", query = "SELECT u FROM Usuario u")})
 public class Usuario implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -220,7 +205,6 @@ public class Usuario implements Serializable {
         this.estado = estado;
     }
 
-    @XmlTransient
     public List<UsuarioXOrganizacion> getUsuarioXOrganizacionList() {
         return usuarioXOrganizacionList;
     }
@@ -229,7 +213,6 @@ public class Usuario implements Serializable {
         this.usuarioXOrganizacionList = usuarioXOrganizacionList;
     }
 
-    @XmlTransient
     public List<Usuario> getUsuarioList() {
         return usuarioList;
     }
@@ -246,7 +229,6 @@ public class Usuario implements Serializable {
         this.usuario = usuario;
     }
 
-    @XmlTransient
     public List<PerfilXUsuario> getPerfilXUsuarioList() {
         return perfilXUsuarioList;
     }
@@ -277,7 +259,7 @@ public class Usuario implements Serializable {
 
     @Override
     public String toString() {
-        return "ec.ruiztello.entidades.Usuario[ idUsuario=" + idUsuario + " ]";
+        return "ec.ruiztello.Usuario[ idUsuario=" + idUsuario + " ]";
     }
     
 }

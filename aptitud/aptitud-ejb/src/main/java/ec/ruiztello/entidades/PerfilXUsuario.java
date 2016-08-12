@@ -17,7 +17,6 @@ import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
-import javax.xml.bind.annotation.XmlRootElement;
 
 /**
  *
@@ -25,10 +24,8 @@ import javax.xml.bind.annotation.XmlRootElement;
  */
 @Entity
 @Table(name = "PERFIL_X_USUARIO")
-@XmlRootElement
 @NamedQueries({
-    @NamedQuery(name = "PerfilXUsuario.findAll", query = "SELECT p FROM PerfilXUsuario p"),
-    @NamedQuery(name = "PerfilXUsuario.findByIdPerfUsu", query = "SELECT p FROM PerfilXUsuario p WHERE p.idPerfUsu = :idPerfUsu")})
+    @NamedQuery(name = "PerfilXUsuario.findAll", query = "SELECT p FROM PerfilXUsuario p")})
 public class PerfilXUsuario implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -98,7 +95,7 @@ public class PerfilXUsuario implements Serializable {
 
     @Override
     public String toString() {
-        return "ec.ruiztello.entidades.PerfilXUsuario[ idPerfUsu=" + idPerfUsu + " ]";
+        return "ec.ruiztello.PerfilXUsuario[ idPerfUsu=" + idPerfUsu + " ]";
     }
     
 }
