@@ -1,0 +1,81 @@
+<?xml version='1.0' encoding='UTF-8' ?> 
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui" >
+
+    <h:head>
+        <meta charset="utf-8"/>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1"/>
+        <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+        <meta name="description" content=""/>
+        <meta name="author" content=""/>
+        <link rel="icon" href="../docs/favicon.ico"/>
+        <title>Theme Template for Bootstrap</title>
+        <!-- Bootstrap core CSS -->
+        <h:outputStylesheet name="css/bootstrap.css"/>
+        <!-- Bootstrap theme -->
+        <h:outputStylesheet name="css/bootstrap-theme.css"/>
+        <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+        <h:outputStylesheet name="css/ie10-viewport-bug-workaround.css"/>
+        <!-- Custom styles for this template -->
+        <h:outputStylesheet name="css/theme.css"/>
+        <!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
+        <!--[if lt IE 9]><script src="../../assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
+        <h:outputScript name="js/ie-emulation-modes-warning.js"/>
+
+    </h:head>
+
+    <h:body>
+
+            <a href="#" data-toggle="modal" data-target="#loginModal"><span class="glyphicon glyphicon-user"></span> Login</a>
+
+
+            <div class="modal fade" id="loginModal" tabindex="-1">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal">&times;</button>
+                            <h4 class="modal-title" id="loginModalLabel">Login</h4>
+                        </div>
+                        <div class="modal-body">
+                            <div class="form-group" id="inputUserIDFormGroup">				
+                                <label class="control-label" for="inputUserID">User ID</label>				
+                                <input type="text" class="form-control" id="inputUserID" placeholder="Enter your user ID"/>    			
+                            </div>
+                            <div class="form-group" id="inputPasswordFormGroup">				
+                                <label class="control-label" for="inputPassword">Password</label>				
+                                <input type="password" class="form-control" id="inputPassword" placeholder="Enter your password"/>    			
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" 
+                                    class="btn btn-danger" 
+                                    data-dismiss="modal">
+                                Cancel
+                            </button>
+                            <button type="submit" 
+                                    class="btn btn-primary">
+                                Login
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+        <!-- Bootstrap core JavaScript
+        ================================================== -->
+        <!-- Placed at the end of the document so the pages load faster -->
+        <h:outputScript name="js/jquery.min.js"/>
+        <h:outputScript name="js/bootstrap.js"/>
+        <h:outputScript name="js/docs.min.js"/>
+        <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+        <h:outputScript name="js/ie10-viewport-bug-workaround.js"/>
+
+    </h:body>
+
+</html>

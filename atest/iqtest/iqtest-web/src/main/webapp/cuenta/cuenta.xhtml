@@ -1,0 +1,181 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <body>
+
+        <ui:composition template="./../plantilla/plantillabasica.xhtml">
+
+            <ui:define name="head">
+                <h:outputStylesheet name="css/jumbotron.css"/>
+            </ui:define>
+
+            <ui:define name="body">
+
+
+               
+
+                <!-- Main jumbotron for a primary marketing message or call to action -->
+                <!--div class="jumbotron">
+                    <div class="container">
+                        <h1>Hello, world!</h1>
+                        <p>This is a template for a simple marketing or informational website. It includes a large callout called a jumbotron and three supporting pieces of content. Use it as a starting point to create something more unique.</p>
+                        <p><a class="btn btn-primary btn-lg" href="#" role="button">Learn more &raquo;</a></p>
+                    </div>
+                </div-->
+                <div class="container">
+                    <!-- Example row of columns -->
+                    <div class="row">
+                        <div class="col-md-4 col-lg-4 ">
+                            <h2>Heading</h2>
+                            <p>Donec id elit </p>
+                            <p><a class="btn btn-default" href="#" role="button">View details &raquo;</a></p>
+                        </div>
+                        <div class="col-md-4 col-lg-4">
+                            <h:form>
+
+
+
+
+
+
+
+
+
+
+                                <p:growl id="growl" />
+
+                                <legend>ingreso de usuarios</legend>
+                                <div class="form-group">
+
+
+                                    <label >  
+                                        <p:outputLabel value="#{bundle01.CreateUsuarioLabel_dni}" for="dni" />
+                                    </label>  
+                                    <div>
+                                        <p:inputText placeholder=""  styleClass="form-control input-md"  id="dni" value="#{controllerCuenta.usua.dni}" title="#{bundle01.CreateUsuarioTitle_dni}" />
+                                        <span class="help-block">help</span>  
+                                    </div>
+
+
+                                    <label >  
+                                        <p:outputLabel value="#{bundle01.CreateUsuarioLabel_nombres}" for="nombres" />
+                                    </label>  
+                                    <div>
+                                        <p:inputText placeholder=""  styleClass="form-control input-md"  id="nombres" value="#{controllerCuenta.usua.nombres}" title="#{bundle01.CreateUsuarioTitle_nombres}" required="true" requiredMessage="#{bundle01.CreateUsuarioRequiredMessage_nombres}"/>
+
+                                        <span class="help-block">help</span>  
+                                    </div>
+                                    <label >  
+                                        <p:outputLabel value="#{bundle01.CreateUsuarioLabel_apellidos}" for="apellidos" />
+
+                                    </label>  
+                                    <div>
+                                        <p:inputText placeholder=""  styleClass="form-control input-md" id="apellidos" value="#{controllerCuenta.usua.apellidos}" title="#{bundle01.CreateUsuarioTitle_apellidos}" required="true" requiredMessage="#{bundle01.CreateUsuarioRequiredMessage_apellidos}"/>
+
+                                        <span class="help-block">help</span>  
+                                    </div>
+                                    <label >  
+                                        <p:outputLabel value="#{bundle01.CreateUsuarioLabel_clave}" for="clave" />
+
+                                    </label>  
+                                    <div>
+                                        <p:password id="clave" placeholder=""  styleClass="form-control input-md"  value="#{controllerCuenta.usua.clave}" title="#{bundle01.CreateUsuarioTitle_clave}" required="false"  requiredMessage="#{bundle01.CreateUsuarioRequiredMessage_clave}"/>
+
+                                        <span class="help-block">help</span>  
+                                    </div>
+
+
+                                    <label >  
+                                        <p:outputLabel value="Reingrese su clave" for="clave2" />
+
+                                    </label>  
+                                    <div>
+                                        <p:password id="clave2" placeholder=""  styleClass="form-control input-md"  value="#{controllerCuenta.clave2}" title="#{bundle01.CreateUsuarioTitle_clave}" required="false"  requiredMessage="#{bundle01.CreateUsuarioRequiredMessage_clave}"/>
+
+                                        <span class="help-block">help</span>  
+                                    </div>
+
+
+
+
+                                    <label >  
+                                        <p:outputLabel value="#{bundle01.CreateUsuarioLabel_email}" for="email" />
+
+                                    </label>  
+                                    <div>
+                                        <p:inputText placeholder=""  styleClass="form-control input-md"  id="email" value="#{controllerCuenta.usua.email}" title="#{bundle01.CreateUsuarioTitle_email}" required="true" requiredMessage="#{bundle01.CreateUsuarioRequiredMessage_email}"/>
+
+                                        <span class="help-block">help</span>  
+                                    </div>
+
+
+                                    <label >  
+                                        <p:outputLabel value="#{bundle01.CreateUsuarioLabel_celular}" for="celular" />
+
+                                    </label>  
+                                    <div>
+                                        <p:inputText placeholder=""  styleClass="form-control input-md"  id="celular" value="#{controllerCuenta.usua.celular}" title="#{bundle01.CreateUsuarioTitle_celular}" />
+
+                                        <span class="help-block">help</span>  
+                                    </div>
+                                    <label >  
+                                        <p:outputLabel value="#{bundle01.CreateUsuarioLabel_fechaCreacion}"  />
+                                    </label>  
+                                    <div>
+
+                                        <span class="help-block">help</span>  
+                                    </div>
+
+                                    <label>
+                                        <p:outputLabel value="Catalogos:" for="catalogos" />
+                                    </label>
+                                    <div >
+
+                                        <h:selectOneMenu id="catalogos" styleClass="form-control"  >
+                                            <!-- TODO: update below reference to list of available items-->
+                                            <f:selectItems value="#{controllerCuenta.catalogoses}"
+                                                           var="item"
+                                                           itemValue="#{item}" itemLabel="#{item.descripcionCatalogo}" />
+                                        </h:selectOneMenu>
+                                    </div>
+
+
+
+
+
+
+
+
+
+
+                                </div><!-- form-group -->
+                                <p:commandButton update="@all" process="@form" value="Crear Usuario" id="nonAjax" actionListener="#{controllerCuenta.buttonAction}"  />
+                                <p:commandButton update="@all" process="@form" value="Limpiar" id="nonAjax2" actionListener="#{controllerCuenta.buttonActionLimpiar(actionEvent)}"  />
+
+
+                            </h:form>
+                        </div>
+                        <div class="col-md-4 col-lg-4">
+                            <h2>Heading</h2>
+                            <p>Donec</p>
+                            <p><a class="btn btn-default" href="#" role="button">View details &raquo;</a></p>
+                        </div>
+                    </div><!-- row -->
+                </div><!-- container -->
+
+                <footer>
+                    <p>&copy; 2016 Company, Inc.</p>
+                </footer>
+
+
+            </ui:define>
+
+        </ui:composition>
+
+    </body>
+</html>
